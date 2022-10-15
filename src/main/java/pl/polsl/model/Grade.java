@@ -15,8 +15,8 @@ import java.util.ArrayList;
  */
 public class Grade {
     
-   public float grade;
-   public float wage;
+   private float grade;
+   private float wage;
    public ArrayList<String> activities = new ArrayList<>();
    
    
@@ -42,6 +42,20 @@ public class Grade {
                break;
        }
        
+   }
+   
+   public Grade(){};
+   
+   public void setGrade(float g){
+       this.grade = g;
+   }
+   
+   public float getGrade(){
+       return this.grade;
+   }
+   
+   public float getWage(){
+      return this.wage;
    }
    
 

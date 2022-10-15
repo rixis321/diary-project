@@ -12,16 +12,33 @@ import java.util.ArrayList;
  */
 public class Subject {
     
-    public String subjectName;
-    public ArrayList<Student> students = new ArrayList<>(20);
+    private String subjectName;
+    private ArrayList<Student> students = new ArrayList<>(20);
     
     public Subject(String subjName){
         this.subjectName = subjName;
         
     }
-    public void  AddStudent(Student stud){
+    
+    public Subject(){};
+    
+    public void  addStudent(Student stud){
         students.add(stud);
     }
+    
+    public void setSubjectName(String subName){
+        this.subjectName = subName;
+    }
+    
+    public String getSubName(){
+        return this.subjectName;
+    }
+    
+    public ArrayList<Student> getStudents(){
+    return students;
+    }
+    
+    
     
     
 }

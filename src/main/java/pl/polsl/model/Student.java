@@ -12,8 +12,8 @@ import java.util.ArrayList;
  */
 public class Student {
     
-   public String name;
-   public String lastName;
+   private String name;
+   private String lastName;
    public ArrayList<Grade> grades = new ArrayList<>(20);
    public float average;
     
@@ -25,15 +25,33 @@ public class Student {
        
     }
     
+    public Student(){};
+    
     public void addGrade(Grade grd){
         grades.add(grd);
  
     }
     
+    public void setName(String name){
+        this.name = name;
+    }
+    
+    public String getName(){
+        return this.name;
+    }
+    
+    public void setLastName(String lname){
+        this.lastName = lname;
+    }
+    
+    public String getLastName(){
+        return this.lastName;
+    }
+    
     public void calcAvg(ArrayList<Grade> g){
         float sum = 0;
         for(int i =0; i<g.size();i++){
-            sum+= g.get(i).grade * g.get(i).wage;
+            sum+= g.get(i).getGrade() * g.get(i).getWage();
             
         }
         this.average = sum/g.size();
