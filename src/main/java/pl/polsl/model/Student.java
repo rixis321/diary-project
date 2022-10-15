@@ -14,8 +14,8 @@ public class Student {
     
    public String name;
    public String lastName;
-   public int year;
    public ArrayList<Grade> grades = new ArrayList<>(20);
+   public float average;
     
     
     public Student(String n, String lname){
@@ -24,5 +24,26 @@ public class Student {
         this.lastName =lname;
        
     }
+    
+    public void addGrade(Grade grd){
+        grades.add(grd);
+ 
+    }
+    
+    public void calcAvg(ArrayList<Grade> g){
+        float sum = 0;
+        for(int i =0; i<g.size();i++){
+            sum+= g.get(i).grade * g.get(i).wage;
+            
+        }
+        this.average = sum/g.size();
+        this.average *=100;
+        this.average = Math.round(this.average);
+        this.average /=100;
+       
+    
+    }
+
+    
     
 }

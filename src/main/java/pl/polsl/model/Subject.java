@@ -19,6 +19,9 @@ public class Subject {
         this.subjectName = subjName;
         
     }
+    public void  AddStudent(Student stud){
+        students.add(stud);
+    }
     
     
 }
