@@ -8,10 +8,17 @@ import pl.polsl.model.Diary;
 
 
 /**
- *
- * @author zento
+ * View class in MVC pattern. Used for displaying the data.
+ * @author Konrad Sygut
+ * @version 1.0
  */
 public class DiaryView {
+    
+    
+        /**
+     * Method that display the data of the diary. 
+     * @param d Diary object
+     */
     public void showDiary(Diary d){        
         System.out.println(d.getClassName());
         System.out.println("************************");
@@ -45,7 +52,10 @@ public class DiaryView {
         
     }
     }
-    
+        /**
+     * Method that display the subjects 
+     * @param d Diary object
+     */
     public void showSubjects(Diary d){
         
              for(int i =0; i<d.getSubjects().size();i++){

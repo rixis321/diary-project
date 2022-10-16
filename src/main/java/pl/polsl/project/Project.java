@@ -11,11 +11,22 @@ import pl.polsl.model.Diary;
 import pl.polsl.view.DiaryView;
 
 /**
- *
- * @author SuperStudent.PL
+ * Main class of the application responsible for the interface.
+ * @author Konrad Sygut
+ * @version 1.0
  */
 public class Project {
 
+    
+     /**
+     * Main method of the application.
+     *
+     * @param args first arg - name of the student(string),
+     * second arg - lastname of the student(string),
+     * third arg - name of the subject(string),
+     * fourth arg - name of the activity(string)(e.x egz,kartk,test,odp),
+     * fifth arg - grade of the student(int number)
+     */
     public static void main(String[] args) { 
         
         DiaryView view = new DiaryView();
@@ -221,9 +232,7 @@ public class Project {
                     else{
                         System.out.println("There are no subjects");
                     }
-                    
-                    
-                    
+                                  
                 }
                 else if(number == 3){
                     view.showDiary(model);
