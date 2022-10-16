@@ -7,7 +7,6 @@
         
         
 package pl.polsl.model;
-
 import java.util.ArrayList;
 
 
@@ -61,7 +60,7 @@ public class Diary {
     }
     
     /**
-     * Method for checking if an ArrayList is empty 
+     * Method for checking if an subject ArrayList is empty 
      * @return true, if array is empty else false
      */
     public boolean isEmpty(){

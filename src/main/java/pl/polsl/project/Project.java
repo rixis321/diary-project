@@ -29,15 +29,15 @@ public class Project {
      */
     public static void main(String[] args) { 
         
-        DiaryView view = new DiaryView();
-        Diary model = new Diary("Group 5");
+        DiaryView view = new DiaryView(); //creating view
+        Diary model = new Diary("Group 5"); // creating model
 //        Subject sub = new Subject("Matematyka");
-        Controler controler = new Controler(model,view);
+        Controler controler = new Controler(model,view); // creating controller
         boolean controlFlag = true;
         Scanner keyboard = new Scanner(System.in);
         
         switch (controler.checkInputOfData(args)) {
-            case 1:
+            case 1: // loading with params
                 controler.addData(args[0], args[1], args[2], args[3],Float.parseFloat(args[4]));
                 System.out.println("Database of " + controler.getClassName());
                 view.showDiary(model);
@@ -50,7 +50,7 @@ public class Project {
                      System.out.println("4.Exit ");
                      
                      int number = keyboard.nextInt();
-                     if(number == 1){
+                     if(number == 1){// new record adding
                          
                          String name;
                          String lastName;
@@ -83,15 +83,15 @@ public class Project {
                          }
                          
                      }
-                     else if(number == 2){
-                      if(!controler.isSubjectsEmpty()){
+                     else if(number == 2){// new student to subject adding
+                      if(!controler.isSubjectsEmpty()){// if array is not empty
                          System.out.println("Existing subjects");
                         view.showSubjects(model);
                         controlFlag = false;
                         System.out.println("Enter the number of subject to add a student:");
                         System.out.println("");
                         number = keyboard.nextInt();
-                       while(number > controler.getSizeOfSubjects() || number < 0 ){
+                       while(number > controler.getSizeOfSubjects() || number < 0 ){ // if index is out of array
                            System.out.println("You typed a wrong number. Try again.");
                            number = keyboard.nextInt();
                        }
@@ -108,7 +108,7 @@ public class Project {
                        activity = keyboard.next();
                         System.out.println("Enter the grade: ");
                         grade = keyboard.next();
-                        while(controler.checkInputOfStudent(name, lastName, activity, grade)== false){
+                        while(controler.checkInputOfStudent(name, lastName, activity, grade)== false){// checking input
                             System.out.println("Try again.");
                              name = keyboard.next();
                              lastName = keyboard.next();
@@ -116,7 +116,7 @@ public class Project {
                              grade = keyboard.next();
                         }
                         
-                        controler.addStudentToSubject(number-1, name, lastName, activity, Float.parseFloat(grade));
+                        controler.addStudentToSubject(number-1, name, lastName, activity, Float.parseFloat(grade));//adding student
                         System.out.println("Student has been added");
                         controlFlag = true;
                         
@@ -127,14 +127,14 @@ public class Project {
                         System.out.println("There are no subjects");
                     }
                      }
-                     else if(number == 3){
+                     else if(number == 3){//showing data
                          view.showDiary(model);
                          System.out.println("***************************************************");
                      }
-                     else if (number == 4){
+                     else if (number == 4){// exiting program
                          controlFlag = false;
                      }
-                     else{
+                     else{// number out of range
                          System.out.println("You entered the wrong number. Try again");
                          System.out.println("");
                        
@@ -142,7 +142,7 @@ public class Project {
                      
                 }      
                 break;
-            case 2:    
+            case 2:    // loading without params
       
                 while(controlFlag){
                     //TESTY 
@@ -155,7 +155,7 @@ public class Project {
                 System.out.println("3.Show database");
                 System.out.println("4.Exit ");
                 int number = keyboard.nextInt();
-                if(number == 1){
+                if(number == 1){// adding new record
                          String name;
                          String lastName;
                          String subject;
@@ -186,7 +186,7 @@ public class Project {
                              System.out.println("");
                          }
                 }
-                else if(number == 2){
+                else if(number == 2){// adding new student to subject
                   
                    
                     
@@ -229,15 +229,15 @@ public class Project {
                         
                         
                     }
-                    else{
+                    else{// database without subjects
                         System.out.println("There are no subjects");
                     }
                                   
                 }
-                else if(number == 3){
+                else if(number == 3){//showing model
                     view.showDiary(model);
                 }
-                else if(number == 4){
+                else if(number == 4){// out of range
                     controlFlag = false;
                 }
                 }

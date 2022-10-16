@@ -6,7 +6,6 @@
 
         
 package pl.polsl.model;
-
 import java.util.ArrayList;
 
 /**
