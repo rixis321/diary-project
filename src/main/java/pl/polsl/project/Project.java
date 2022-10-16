@@ -22,11 +22,11 @@ public class Project {
         
         DiaryView view = new DiaryView();
         Diary model = new Diary("Group 5");
-        Subject sub = new Subject("Matematyka");
+//        Subject sub = new Subject("Matematyka");
         Controler controler = new Controler(model,view);
         controler.checkInput(args);
-        controler.addToDiary(sub);
-        view.showDiary(model);
+//        controler.addToDiary(sub);
+//        view.showDiary(model);
 
 //         diar.addToDiary(sub);
          

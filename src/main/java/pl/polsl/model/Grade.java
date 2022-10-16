@@ -17,7 +17,7 @@ public class Grade {
     
    private float grade;
    private float wage;
-   public ArrayList<String> activities = new ArrayList<>();
+   private ArrayList<String> activities = new ArrayList<>();
    
    
    public Grade(float g, String act){
@@ -56,6 +56,10 @@ public class Grade {
    
    public float getWage(){
       return this.wage;
+   }
+   
+   public ArrayList<String> getActivities(){
+       return this.activities;
    }
    
 
