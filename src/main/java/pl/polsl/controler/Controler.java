@@ -24,6 +24,7 @@ public class Controler {
     public Controler(Diary d, DiaryView dw){
         this.model = d;
         this.view = dw;
+        
     }
     
     public void addToDiary(Subject sub){
@@ -37,7 +38,6 @@ public class Controler {
     public void checkInput(String args[]){
         
         int numberOfParameters = args.length;
-        
         String name;
         String lastName;
         String subject;
@@ -46,21 +46,25 @@ public class Controler {
         boolean error = false;
       
         if(numberOfParameters == 5){
-            try{
-                name = args[0];
-                lastName = args[1];
-                subject = args[2];
-                activity = args[3];
-                grade = Float.parseFloat(args[4]);
+            if(args[0].matches("[a-zA-Z]+" ) && args[1].matches("[a-zA-Z]+") 
+                    && args[2].matches("[a-zA-Z]+")
+                    && args[3].matches("^[a-zA-Z0-9]+$")){
+                
+                if(args[4].matches("[2-5]")){
+                    //TODOOOOOOOOOOO przerobic funkcje na bool
+                    System.out.println("Parameters are correct");
+                }
+                else{
+                    System.out.println("Last parameter must be a number value");
+                }
+            
+        }
+            else{
+                System.out.println("The first 4 parameters must be a string value. Try again. ");
             }
-            catch (ArrayIndexOutOfBoundsException e) {
-                error = true;
-                System.err.println("No arguments !!!");
-
-                    }
             
          }
-         else if(numberOfParameters > 0 && numberOfParameters < 5){
+         else if(numberOfParameters > 0 && numberOfParameters > 5){
              System.out.println("Not enough parameters");
          }
          else{

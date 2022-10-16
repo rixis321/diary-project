@@ -29,8 +29,8 @@ public class DiaryView {
             for(int k=0; k<d.getSubjects().get(i).getStudents().get(j).grades.size();k++){
                 
                 //printing activites
-                 for(int m = 0; m<d.getSubjects().get(i).getStudents().get(j).grades.get(k).activities.size();m++){
-                     System.out.print(d.getSubjects().get(i).getStudents().get(j).grades.get(k).activities.get(m)+": " );
+                 for(int m = 0; m<d.getSubjects().get(i).getStudents().get(j).grades.get(k).getActivities().size();m++){
+                     System.out.print(d.getSubjects().get(i).getStudents().get(j).grades.get(k).getActivities().get(m)+": " );
                  }
                  System.out.print(d.getSubjects().get(i).getStudents().get(j).grades.get(k).getGrade() +" ");
                  
