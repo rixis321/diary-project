@@ -26,16 +26,16 @@ public class Grade {
        this.activities.add(act);
        switch (act) {
            case "kartk":
-               this.wage = (float) 0.6;
+               this.wage = (float) 0.4;
                break;
            case "odp":
-               this.wage = (float)0.8;
+               this.wage = (float)0.6;
                break;
            case "egz":
-               this.wage = (float)1.2;
+               this.wage = (float)0.8;
                break;
            case "akt":
-               this.wage = (float)0.3;
+               this.wage = (float)0.2;
                break;
            default:
                this.wage = 1;

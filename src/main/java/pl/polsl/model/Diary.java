@@ -32,6 +32,15 @@ public class Diary {
         this.className = name;
     }
     
+    public boolean isEmpty(){
+       return this.getSubjects().isEmpty();
+        
+    }
+    
+    public int getSize(){
+        return this.subjects.size();
+    }
+    
     public String getClassName(){
     return this.className;
     }
@@ -43,6 +52,19 @@ public class Diary {
     public ArrayList<Subject> getSubjects(){
         return subjects;
     } 
+    
+    public void addStudentToSubject(int index,String name, String lname, String act,float g){
+        Student student = new Student(name,lname);
+        Grade grd = new Grade(g,act);
+        student.addGrade(grd);
+        student.calcAvg(student.grades);
+        
+        for(int i = 0; i< subjects.size();i++){
+            this.subjects.get(index).addStudent(student);
+            break;
+        }
+        
+    }
     
     public void addData(String name,String lname, String sbj, String act,float g){
         
@@ -57,9 +79,7 @@ public class Diary {
            this.addSubject(subj);
            
            
-          
-//           this.addSubject(subj);
-//           subj.addStudent(stud);
+     
     }
    
     

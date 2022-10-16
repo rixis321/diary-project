@@ -6,6 +6,7 @@ package pl.polsl.view;
 
 import pl.polsl.model.Diary;
 
+
 /**
  *
  * @author zento
@@ -45,5 +46,15 @@ public class DiaryView {
     }
     }
     
+    public void showSubjects(Diary d){
+        
+             for(int i =0; i<d.getSubjects().size();i++){
+            System.out.println((i+1) + "." + d.getSubjects().get(i).getSubName());
+        }
+
+       
+    }
+    
+
     
 }

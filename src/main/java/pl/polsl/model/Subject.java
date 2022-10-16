@@ -31,6 +31,7 @@ public class Subject {
         students.add(stud);
     }
     
+    
     public void setSubjectName(String subName){
         this.subjectName = subName;
     }
@@ -38,6 +39,8 @@ public class Subject {
     public String getSubName(){
         return this.subjectName;
     }
+    
+    
     
     public ArrayList<Student> getStudents(){
     return students;
