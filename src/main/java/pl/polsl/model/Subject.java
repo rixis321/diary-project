@@ -15,12 +15,17 @@ public class Subject {
     private String subjectName;
     private ArrayList<Student> students = new ArrayList<>(20);
     
+    
+    
+    
     public Subject(String subjName){
         this.subjectName = subjName;
         
     }
     
     public Subject(){};
+    
+  
     
     public void  addStudent(Student stud){
         students.add(stud);

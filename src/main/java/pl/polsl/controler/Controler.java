@@ -35,15 +35,18 @@ public class Controler {
         view.showDiary(this.model);
     }
     
-    public void checkInput(String args[]){
+    public String getClassName(){
+        return this.model.getClassName();
+    }
+    
+    public void addData(String name,String lname, String sbj, String act,float g){
+        this.model.addData(name, lname, sbj, act, g);
+    }
+    
+    public int checkInput(String args[]){
         
         int numberOfParameters = args.length;
-        String name;
-        String lastName;
-        String subject;
-        String activity;
-        float grade;
-        boolean error = false;
+        int flag = 1;
       
         if(numberOfParameters == 5){
             if(args[0].matches("[a-zA-Z]+" ) && args[1].matches("[a-zA-Z]+") 
@@ -53,29 +56,52 @@ public class Controler {
                 if(args[4].matches("[2-5]")){
                     //TODOOOOOOOOOOO przerobic funkcje na bool
                     System.out.println("Parameters are correct");
+                    flag = 1;
+                    
                 }
                 else{
                     System.out.println("Last parameter must be a number value");
+                    flag = 0;
                 }
             
-        }
+             }
             else{
                 System.out.println("The first 4 parameters must be a string value. Try again. ");
+                flag = 0;
             }
             
          }
          else if(numberOfParameters > 0 && numberOfParameters > 5){
              System.out.println("Not enough parameters");
+             flag = 2;
+             
+            
          }
          else{
              System.out.println("No parameters"); 
+             flag = 2;
+             
+             
          }
-                
-              
-              
-     
-  
         
-        
+        return flag;
     }
+    
+    public boolean checkInput(String name,String lname, String sbj, String act,String g){
+        if(name.matches("[a-zA-Z]+" ) && lname.matches("[a-zA-Z]+") 
+                    && sbj.matches("[a-zA-Z]+")
+                    && act.matches("^[a-zA-Z0-9]+$")
+                    && g.matches("[2-5]")){
+             return true;
+        }
+        else{
+             return false;
+        }
+        
+           
+        
+         
+           
+    }
+    
 }

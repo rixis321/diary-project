@@ -43,6 +43,24 @@ public class Diary {
     public ArrayList<Subject> getSubjects(){
         return subjects;
     } 
+    
+    public void addData(String name,String lname, String sbj, String act,float g){
+        
+           Subject subj = new Subject(sbj);
+           Student stud = new Student(name,lname);
+           Grade grd = new Grade(g,act);
+           
+           grd.setGrade(g);
+           stud.addGrade(grd);
+           stud.calcAvg(stud.grades);
+           subj.addStudent(stud);
+           this.addSubject(subj);
+           
+           
+          
+//           this.addSubject(subj);
+//           subj.addStudent(stud);
+    }
    
     
 }
