@@ -34,9 +34,9 @@ public class Project {
                 while(controlFlag){
                      System.out.println("Enter the number to make decsion: ");
                      System.out.println("1.Add new record to database");
-                     System.out.println("Add a student to an existing subject ");
-                     System.out.println("2.Show database");
-                     System.out.println("3.Exit ");
+                     System.out.println("2.Add a student to an existing subject ");
+                     System.out.println("3.Show database");
+                     System.out.println("4.Exit ");
                      
                      int number = keyboard.nextInt();
                      if(number == 1){
@@ -73,10 +73,54 @@ public class Project {
                          
                      }
                      else if(number == 2){
+                      if(!controler.isSubjectsEmpty()){
+                         System.out.println("Existing subjects");
+                        view.showSubjects(model);
+                        controlFlag = false;
+                        System.out.println("Enter the number of subject to add a student:");
+                        System.out.println("");
+                        number = keyboard.nextInt();
+                       while(number > controler.getSizeOfSubjects() || number < 0 ){
+                           System.out.println("You typed a wrong number. Try again.");
+                           number = keyboard.nextInt();
+                       }
+                       
+                         String name;
+                         String lastName;
+                         String activity;
+                         String grade;
+                        System.out.println("Enter the name");
+                        name = keyboard.next();
+                       System.out.println("Enter the last name");
+                       lastName = keyboard.next();
+                       System.out.println("Enter the activity: ");
+                       activity = keyboard.next();
+                        System.out.println("Enter the grade: ");
+                        grade = keyboard.next();
+                        while(controler.checkInputOfStudent(name, lastName, activity, grade)== false){
+                            System.out.println("Try again.");
+                             name = keyboard.next();
+                             lastName = keyboard.next();
+                             activity = keyboard.next();
+                             grade = keyboard.next();
+                        }
+                        
+                        controler.addStudentToSubject(number-1, name, lastName, activity, Float.parseFloat(grade));
+                        System.out.println("Student has been added");
+                        controlFlag = true;
+                        
+                        
+                        
+                    }
+                    else{
+                        System.out.println("There are no subjects");
+                    }
+                     }
+                     else if(number == 3){
                          view.showDiary(model);
                          System.out.println("***************************************************");
                      }
-                     else if (number == 3){
+                     else if (number == 4){
                          controlFlag = false;
                      }
                      else{
