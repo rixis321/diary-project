@@ -11,4 +11,5 @@
         <maven.compiler.target>17</maven.compiler.target>
         <exec.mainClass>pl.polsl.project.Project</exec.mainClass>
     </properties>
+    <name>DiaryProject</name>
 </project>

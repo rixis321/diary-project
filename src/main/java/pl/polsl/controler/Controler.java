@@ -115,7 +115,7 @@ public class Controler {
      * second arg - lastname of the student(string),
      * third arg - name of the subject(string),
      * fourth arg - name of the activity(string)(e.x egz,kartk,test,odp),
-     * fifth arg - grade of the student(int number)
+     * fifth arg - grade of the student(int number)(only this numbers user can pass 2,3,4,5)
      */
     public int checkInputOfData(String args[]){
         
@@ -134,7 +134,7 @@ public class Controler {
                     
                 }
                 else{
-                    System.out.println("Last parameter must be a number value");
+                    System.out.println("Last parameter is not correct");
                     flag = 0;
                 }
             
@@ -200,5 +200,8 @@ public class Controler {
            else 
                return false;
         }
+    
+    
+   
     
 }

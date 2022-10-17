@@ -8,7 +8,6 @@ import java.util.ArrayList;
 /**
  * Class that represents subject. Its storying the information about name of subject
  * and students
- * 
  * @author Konrad Sygut
  * @version 1.0
  */

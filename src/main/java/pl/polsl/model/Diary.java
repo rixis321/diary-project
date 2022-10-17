@@ -144,6 +144,49 @@ public class Diary {
            
      
     }
-   
+    
+//       public void checkStringWithOwnException{String word}{
+//        
+//        
+//          try{
+//              
+//          }
+//          catch(StringException se){
+//              System.out.println(se.getMessage());
+//          }
+//
+//          
+//     }
+//       
+//       static float stringToFloat(String input) throws StringException{
+//           float result = Float.parseFloat(input);
+//           
+//       }
+//           
+//       }
+           
+       
+          
+  
     
 }
+   
+
+//    class StringException extends Exception {
+//
+//    /**
+//     * Non-parameter constructor
+//     */
+//    public StringException() {
+//    }
+//
+//    /**
+//     * Exception class constructor
+//     *
+//     * @param message display message
+//     */
+//    public StringException(String message) {
+//        super(message);
+//    }
+    
+

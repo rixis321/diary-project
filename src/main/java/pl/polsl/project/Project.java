@@ -25,7 +25,9 @@ public class Project {
      * second arg - lastname of the student(string),
      * third arg - name of the subject(string),
      * fourth arg - name of the activity(string)(e.x egz,kartk,test,odp),
-     * fifth arg - grade of the student(int number)
+     * fifth arg - grade of the student(int number)(only this numbers user can pass 2,3,4,5)
+     * example with passing arguments: Marek Kowalski Informatics kartk 3
+     * example with passing arguments: Piotrek Kot Maths egz 4
      */
     public static void main(String[] args) { 
         
@@ -88,9 +90,14 @@ public class Project {
                          System.out.println("Existing subjects");
                         view.showSubjects(model);
                         controlFlag = false;
+                        
+                        String input;
                         System.out.println("Enter the number of subject to add a student:");
                         System.out.println("");
-                        number = keyboard.nextInt();
+                         input = keyboard.next();
+                         number = Integer.parseInt(input);
+                         
+                        
                        while(number > controler.getSizeOfSubjects() || number < 0 ){ // if index is out of array
                            System.out.println("You typed a wrong number. Try again.");
                            number = keyboard.nextInt();
@@ -145,9 +152,6 @@ public class Project {
             case 2:    // loading without params
       
                 while(controlFlag){
-                    //TESTY 
-//                    controler.addData("Marek", "Kowalczyk", "Matematyka", "egz",3);
-//                    controler.addData("Konrad", "GIgachad", "Informatyka", "egz",5);
                 System.out.println("");
                 System.out.println("Enter the number to make decsion: ");
                 System.out.println("1.Add new record to database"); 
@@ -239,6 +243,10 @@ public class Project {
                 }
                 else if(number == 4){// out of range
                     controlFlag = false;
+                }
+                else{
+                    System.out.println("Wrong number. Try again.");
+                    System.out.println(" ");
                 }
                 }
                         
