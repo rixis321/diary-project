@@ -42,7 +42,7 @@ public class Project {
             case 1: // loading with params
                 controler.addData(args[0], args[1], args[2], args[3],Float.parseFloat(args[4]));
                 System.out.println("Database of " + controler.getClassName());
-                view.showDiary(model);
+                controler.updateDiaryView(model);
                 System.out.println("***************************************************");
                 while(controlFlag){
                      System.out.println("Enter the number to make decsion: ");
@@ -86,9 +86,9 @@ public class Project {
                          
                      }
                      else if(number == 2){// new student to subject adding
-                      if(!controler.isSubjectsEmpty()){// if array is not empty
+                      if(!controler.isSubjectsEmpty()){// if ArrayList is not empty
                          System.out.println("Existing subjects");
-                        view.showSubjects(model);
+                        controler.updateSubjectView(model);
                         controlFlag = false;
                         
                         String input;
@@ -135,7 +135,7 @@ public class Project {
                     }
                      }
                      else if(number == 3){//showing data
-                         view.showDiary(model);
+                         controler.updateDiaryView(model);
                          System.out.println("***************************************************");
                      }
                      else if (number == 4){// exiting program
@@ -196,7 +196,7 @@ public class Project {
                     
                     if(!controler.isSubjectsEmpty()){
                          System.out.println("Existing subjects");
-                        view.showSubjects(model);
+                        controler.updateSubjectView(model);
                         controlFlag = false;
                         System.out.println("Enter the number of subject to add a student:");
                         System.out.println("");
@@ -239,7 +239,7 @@ public class Project {
                                   
                 }
                 else if(number == 3){//showing model
-                    view.showDiary(model);
+                    controler.updateDiaryView(model);
                 }
                 else if(number == 4){// out of range
                     controlFlag = false;

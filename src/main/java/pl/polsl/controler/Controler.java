@@ -81,9 +81,22 @@ public class Controler {
         return this.model.getSize();
     }
     
-//    public void updateView(){
-//        view.showDiary(this.model);
-//    }
+    
+        /**
+        * Method that update the view of the diary object.
+        * @param d Diary object
+        */
+    public void updateDiaryView(Diary d){
+        this.view.showDiary(this.model);
+    }
+    
+       /**
+        * Method that update the view of the subject object. 
+        * @param d Diary object 
+        */
+    public void updateSubjectView(Diary d){
+        this.view.showSubjects(this.model);
+    }
     
     
     /**
