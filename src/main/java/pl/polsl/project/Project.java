@@ -15,6 +15,8 @@ import pl.polsl.view.DiaryView;
  * @author Konrad Sygut
  * @version 1.0
  */
+
+
 public class Project {
 
     
@@ -28,6 +30,15 @@ public class Project {
      * fifth arg - grade of the student(int number)(only this numbers user can pass 2,3,4,5)
      * example with passing arguments: Marek Kowalski Informatics kartk 3
      * example with passing arguments: Piotrek Kot Maths egz 4
+     * 
+     * -----
+     * testy
+     * 1.automatyzacja
+     * 2.profesjonalizm
+     * 3.kompletnosc
+     * 4.niezaleznosc
+     * 5.powtarzalnosc
+     *  testujemy model - wszystko oprocz get/set metod i konstruktory
      */
     public static void main(String[] args) { 
         

@@ -48,7 +48,7 @@ public class Controler {
      * @param sub object of a Subject class 
      */
     public void addToDiary(Subject sub){
-    this.model.addSubject(sub);
+    model.addSubject(sub);
     }
     
     
