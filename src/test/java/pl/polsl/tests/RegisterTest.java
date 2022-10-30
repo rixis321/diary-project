@@ -10,7 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import pl.polsl.model.Diary;
+import pl.polsl.model.Register;
 import pl.polsl.model.Grade;
 import pl.polsl.model.Student;
 import pl.polsl.model.Subject;
@@ -19,16 +19,16 @@ import pl.polsl.model.Subject;
  *
  * @author zento
  */
-public class DiaryTest {
+public class RegisterTest {
     
-     private Diary diary;
+     private Register diary;
     
-    public DiaryTest() {
+    public RegisterTest() {
     }
     
      @BeforeEach
    public void setUp(){
-    diary = new Diary("grupa 1"); 
+    diary = new Register("grupa 1"); 
    }
     
     @Test

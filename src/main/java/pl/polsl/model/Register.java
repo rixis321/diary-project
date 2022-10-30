@@ -12,18 +12,18 @@ import java.util.ArrayList;
 
 /**
 * 
-* Class for Diary representation. Its storying subjects in a ArrayList.
+* Class for Register representation. Its storying subjects in a ArrayList.
 * 
 * 
 * @author  Konrad Sygut
 * @version 1.0
 */
-public class Diary {
+public class Register {
     
     //fields
     
     /**
-     * Represent class name for a diary
+     * Represent class name for a register
      */
     private String className;   
     
@@ -39,20 +39,20 @@ public class Diary {
      *
      * @param c_name name of a class(I mean school class for example) as String
      */
-    public Diary(String c_name){
+    public Register(String c_name){
         this.className=c_name;
     }
     
      /**
      * Default class constructor
      */
-    public Diary(){};
+    public Register(){};
     
     //methods
     
     
     /**
-     * Method for setting a class name for an diary object
+     * Method for setting a class name for an register object
      * @param name name of a class as String
      */
     public void setClassName(String name){
@@ -77,7 +77,7 @@ public class Diary {
     }
     
     /**
-     * Method that returns the class name of an Diary object
+     * Method that returns the class name of an register object
      * @return class name of an object as a String
      */
     public String getClassName(){
@@ -144,6 +144,7 @@ public class Diary {
            
      
     }
+    
     
 //       public void checkStringWithOwnException{String word}{
 //        

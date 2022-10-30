@@ -5,14 +5,14 @@
 package pl.polsl.controler;
 
 
-import pl.polsl.model.Diary;
+import pl.polsl.model.Register;
 import pl.polsl.model.Subject;
-import pl.polsl.view.DiaryView;
+import pl.polsl.view.RegisterView;
 
 /**
 * 
-* Controller class in MVC pattern. It controls data flow into Diary object.
-* It keeps view and diary model separate.
+* Controller class in MVC pattern. It controls data flow into Register object.
+* It keeps view and register model separate.
 * @author  Konrad Sygut
 * @version 1.0
 */
@@ -20,24 +20,24 @@ public class Controler {
     //fields
     
     /**
-     * Represent diary model
+     * Represent register model
      */
-    private Diary model;
+    private Register model;
     
     /**
      * Represent diary view
      */
-    private DiaryView view;
+    private RegisterView view;
     
     
     //methods
     
     /**
      * class constructor with 2 parameters.
-     * @param d Diary object
-     * @param dw DiaryView object
+     * @param d Register object
+     * @param dw RegisterView object
      */
-    public Controler(Diary d, DiaryView dw){
+    public Controler(Register d, RegisterView dw){
         this.model = d;
         this.view = dw;
         
@@ -47,7 +47,7 @@ public class Controler {
      * Method that update Subject ArrayList, adding subject to ArrayList
      * @param sub object of a Subject class 
      */
-    public void addToDiary(Subject sub){
+    public void addToRegister(Subject sub){
     model.addSubject(sub);
     }
     
@@ -84,17 +84,25 @@ public class Controler {
     
         /**
         * Method that update the view of the diary object.
-        * @param d Diary object
+        * @param d register object
         */
-    public void updateDiaryView(Diary d){
+    public void updateRegisterView(Register d){
         this.view.showDiary(this.model);
+    }
+    
+    /**
+        * Method that update the view of the interface
+        * 
+        */
+    public void updateShowInterface(){
+        this.view.showInterface();
     }
     
        /**
         * Method that update the view of the subject object. 
-        * @param d Diary object 
+        * @param d register object 
         */
-    public void updateSubjectView(Diary d){
+    public void updateSubjectView(Register d){
         this.view.showSubjects(this.model);
     }
     
@@ -129,6 +137,8 @@ public class Controler {
      * third arg - name of the subject(string),
      * fourth arg - name of the activity(string)(e.x egz,kartk,test,odp),
      * fifth arg - grade of the student(int number)(only this numbers user can pass 2,3,4,5)
+     * @return 1 if parameters are correct, 0 if parameters are not correct,
+     * 2 if there are no parameters or not enough of them 
      */
     public int checkInputOfData(String args[]){
         
@@ -142,7 +152,7 @@ public class Controler {
                 
                 if(args[4].matches("[2-5]")){
                     
-                    System.out.println("Parameters are correct");
+                    //System.out.println("Parameters are correct");
                     flag = 1;
                     
                 }
@@ -159,13 +169,13 @@ public class Controler {
             
          }
          else if(numberOfParameters > 0 && numberOfParameters > 5){
-             System.out.println("Not enough parameters");
+             //System.out.println("Not enough parameters");
              flag = 2;
              
             
          }
          else{
-             System.out.println("No parameters"); 
+            // System.out.println("No parameters"); 
              flag = 2;
              
              

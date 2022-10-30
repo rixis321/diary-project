@@ -56,6 +56,7 @@ public class Student {
     
     /**
      * Method that adds Grade object to an ArrayList of the grades
+     * @param grd grade of the student
      */
     public void addGrade(Grade grd){
         grades.add(grd);

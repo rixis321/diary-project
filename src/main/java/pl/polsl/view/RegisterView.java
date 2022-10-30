@@ -4,22 +4,23 @@
  */
 package pl.polsl.view;
 
-import pl.polsl.model.Diary;
+
+import pl.polsl.model.Register;
 
 
 /**
  * View class in MVC pattern. Used for displaying the data.
  * @author Konrad Sygut
- * @version 1.0
+ * @version 1.1
  */
-public class DiaryView {
+public class RegisterView {
     
     
         /**
      * Method that display the data of the diary. 
      * @param d Diary object
      */
-    public void showDiary(Diary d){        
+    public void showDiary(Register d){        
         System.out.println(d.getClassName());
         System.out.println("************************");
         //printing subjects
@@ -56,15 +57,28 @@ public class DiaryView {
      * Method that display the subjects 
      * @param d Diary object
      */
-    public void showSubjects(Diary d){
+    public void showSubjects(Register d){
         
              for(int i =0; i<d.getSubjects().size();i++){
             System.out.println((i+1) + "." + d.getSubjects().get(i).getSubName());
         }
-
+              
        
     }
     
+    
+    public void showInterface(){
+        System.out.println("******************************************************");
+       System.out.println("Enter the number to make decsion: ");
+       System.out.println("1.Add new record to database");
+       System.out.println("2.Add a student to an existing subject ");
+       System.out.println("3.Show database");
+       System.out.println("4.Exit ");
+                     
+
+    }
+    
+   
 
     
 }
