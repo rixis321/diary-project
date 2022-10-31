@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * Class that represents grade. Its storying the activities(e.g. spr,egz,kartk,odp) of a student.
  * 
  * @author Konrad Sygut
- * @version 1.0
+ * @version 1.1
  */
 public class Grade {
     //fields 
@@ -26,43 +26,67 @@ public class Grade {
      * represent a wage. Its used for calculating a grade
      */
    private float wage;
+
+   
+      /* 
+   * enum that represents type of activity of the student 
+   */
+   private enum Activity{
+       KARTK,
+       EGZ,
+       ODP,
+       AKT,
+       OTHER
+   }
+    /**
+     * represent the activity of the student
+     */
+   private Activity act;
    
    
    //methods
-   
+   private void setActivity(String nameOfAct){
+       if(nameOfAct.equals("kartk")){
+          this.act = Activity.KARTK;
+          this.wage = (float) 0.8;
+       }
+       else if(nameOfAct.equals("odp")){
+           this.act = Activity.ODP;
+           this.wage = (float)0.7;
+       }
+       else if(nameOfAct.equals("egz")){
+           this.act = Activity.EGZ;
+           this.wage = (float)1.0;
+       }
+       else if(nameOfAct.equals("akt")){
+           this.act = Activity.AKT;
+           this.wage = (float)0.5;
+       }
+       else
+       {
+           this.act = Activity.OTHER;
+           this.wage = 1;
+       }
+       
+}
    
    /**
      * An ArrayList that stores activites which are the string value.
      */
-   private ArrayList<String> activities = new ArrayList<>();
+   private ArrayList<Activity> activities = new ArrayList<>();
    
    /**
      * class constructor with 2 parameters. Its calculating the wage of a grade
      * based on activity of a student
      * @param g grade of a student
-     * @param act activity of a student
+     * @param nameOfAct activity of a student
      */           
-   public Grade(float g, String act){
+   public Grade(float g, String nameOfAct){
        
        this.grade = g;
-       this.activities.add(act);
-       switch (act) {
-           case "kartk":
-               this.wage = (float) 0.4;
-               break;
-           case "odp":
-               this.wage = (float)0.6;
-               break;
-           case "egz":
-               this.wage = (float)0.8;
-               break;
-           case "akt":
-               this.wage = (float)0.2;
-               break;
-           default:
-               this.wage = 1;
-               break;
-       }
+       setActivity(nameOfAct);
+       activities.add(act);
+       
        
    }
     /**
@@ -99,12 +123,17 @@ public class Grade {
         * Method that returns the ArrayList of the activites
         * @return ArrayList of the activites
          */ 
-        public ArrayList<String> getActivities(){
+        public ArrayList<Activity> getActivities(){
             return this.activities;
         }
    
 
-   
+//   public void asg(){
+//       for(int i =0; i<activities.size();i++){
+//           activities.get(i);
+//       }
+//       
+//   }
    
   
 }
