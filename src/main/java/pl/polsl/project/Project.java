@@ -46,7 +46,6 @@ public class Project {
         Register model = new Register("Group 5"); // creating model
         Controler controler = new Controler(model,view); // creating controller
         boolean controlFlag = true;
-        boolean param;
         Scanner keyboard = new Scanner(System.in);
         String name,lastName,subject,activity,grade;
 

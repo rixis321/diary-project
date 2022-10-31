@@ -5,7 +5,9 @@
 package pl.polsl.view;
 
 
+
 import pl.polsl.model.Register;
+
 
 
 /**
@@ -44,7 +46,7 @@ public class RegisterView {
                  System.out.print(d.getSubjects().get(i).getStudents().get(j).grades.get(k).getGrade() +" ");
                  
       
-                
+               
             }
             System.out.print("average: " + d.getSubjects().get(i).getStudents().get(j).average+ " ");
             System.out.print("\n");
@@ -62,11 +64,15 @@ public class RegisterView {
              for(int i =0; i<d.getSubjects().size();i++){
             System.out.println((i+1) + "." + d.getSubjects().get(i).getSubName());
         }
-              
+             
+      
        
     }
     
-    
+       /**
+     * Method that display the interface
+     *
+     */
     public void showInterface(){
         System.out.println("******************************************************");
        System.out.println("Enter the number to make decsion: ");

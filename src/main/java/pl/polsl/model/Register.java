@@ -122,7 +122,7 @@ public class Register {
     }
     
     /**
-     * Method that adds data to Diary object.
+     * Method that adds data to Register object.
      * @param name name of the student
      * @param lname last name of the student
      * @param sbj name of the subject
