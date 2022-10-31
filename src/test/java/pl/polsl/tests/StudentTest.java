@@ -13,15 +13,21 @@ import pl.polsl.model.Grade;
 import pl.polsl.model.Student;
 
 /**
- *
- * @author zento
- */
+* 
+* Class that contains test for methods of the Student class
+
+* @author  Konrad Sygut
+* @version 1.0
+*/
 public class StudentTest {
     
         private Student student;
 
 
-
+            /**
+           * Method that creates student and grades before each test. Its also 
+           * calculating the average needed for comparing with test function.
+           */
          @BeforeEach
          public void setUp(){
              student = new Student("Mateusz" ,"Kowalski");
@@ -36,7 +42,21 @@ public class StudentTest {
              student.calcAvg(student.grades);
 
          }
-
+         
+          /**
+                * Method that tests the Student function called
+                * calcAvg(ArrayList Grades g)
+                * Test checks if the test function returns the same average as
+                * the previous one that was created before test. That means 
+                * that average was calculated correctly
+                * @param name first parameter string(student name)
+                * @param lname second parameter string (student last name)
+                * @param g grade of the student
+                * @param g2 grade of the student
+                * @param g3 grade of the student
+                * @param g4 grade of the student
+                */
+         
         @ParameterizedTest
         @CsvSource({"Ola,Kowalska,5,4,3,2","Arek,Kowalski,5,4,3,2"})
         public void shouldReturnTheSameAverage(String name, String lname,float g , float g2,
@@ -58,7 +78,18 @@ public class StudentTest {
         }
 
 
-
+                /**
+                * Method that tests the Student function called
+                * addGrade(Grade grd)
+                * Test checks if the grades arrays are of the same size.
+                * If they are equal it means that the data was added correctly
+                * @param name first parameter string(student name)
+                * @param lname second parameter string (student last name)
+                * @param g grade of the student
+                * @param g2 grade of the student
+                * @param g3 grade of the student
+                * @param g4 grade of the student
+                */
         @ParameterizedTest
         @CsvSource({"Monika,Kowalska,5,4,3,2","Arek,Kowal,5,4,3,2"})
         public void shouldReturnTheSameSizeOfGradesArray(String name, String lname,float g , float g2,

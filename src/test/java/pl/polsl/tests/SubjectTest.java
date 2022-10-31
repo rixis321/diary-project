@@ -4,11 +4,7 @@
  */
 package pl.polsl.tests;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -16,13 +12,27 @@ import pl.polsl.model.Student;
 import pl.polsl.model.Subject;
 
 /**
- *
- * @author zento
- */
+* 
+* Class that contains test for methods of the Subject class
+
+* @author  Konrad Sygut
+* @version 1.0
+*/
 public class SubjectTest {
    
+    
+    /**
+     * Represents the subject model
+     */
      private Subject subject;
      
+     
+     
+           /**
+           * Method that creates subject and student before each test. Its also 
+           * adding the student to the students array to the subject object.Its
+           * used for comparing with test funtion.
+           */
      @BeforeEach
      public void setUp(){
          subject = new Subject("Matematyka");
@@ -30,6 +40,15 @@ public class SubjectTest {
          subject.addStudent(student);
      }
      
+     
+       /**
+                * Method that tests the Subject function called
+                * addStudent(Student stud)
+                * Test checks if the students arrays are of the same size. If
+                * they are equal it means that the data was added correctly
+                * @param name name of the student
+                * @param lname last name of the student
+                */
      @ParameterizedTest
     @CsvSource({"Ola,Kowalska","Marek,Taczka", "Olek,Mlotek"})
      public void shouldReturnTheSameSizeOfStudentArray(String name, String lname){
