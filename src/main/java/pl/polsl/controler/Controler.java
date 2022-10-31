@@ -14,7 +14,7 @@ import pl.polsl.view.RegisterView;
 * Controller class in MVC pattern. It controls data flow into Register object.
 * It keeps view and register model separate.
 * @author  Konrad Sygut
-* @version 1.0
+* @version 1.1
 */
 public class Controler {
     //fields
@@ -28,7 +28,6 @@ public class Controler {
      * Represent diary view
      */
     private RegisterView view;
-    
     
     //methods
     

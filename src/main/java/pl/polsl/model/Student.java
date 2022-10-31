@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Class that represents student. Its storying the information about student
  * and his grades.
  * @author Konrad Sygut
- * @version 1.0
+ * @version 1.1
  */
 public class Student {
     //fields
@@ -89,6 +89,7 @@ public class Student {
     
     /**
      * Method that returns the lastname of an student object
+     * @return last name of the student 
      */
     public String getLastName(){
         return this.lastName;
@@ -100,10 +101,12 @@ public class Student {
      */
     public void calcAvg(ArrayList<Grade> g){
         float sum = 0;
-        for(int i =0; i<g.size();i++){
-            sum+= g.get(i).getGrade() * g.get(i).getWage();
-            
+        
+        for(Grade grad : g){
+           sum+= grad.getGrade() * grad.getWage();
         }
+        
+   
         this.average = sum/g.size();
         this.average *=100;
         this.average = Math.round(this.average);
