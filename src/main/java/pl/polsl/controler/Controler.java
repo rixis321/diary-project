@@ -25,7 +25,7 @@ public class Controler {
     private Register model;
     
     /**
-     * Represent diary view
+     * Represent register view
      */
     private RegisterView view;
     
@@ -216,7 +216,7 @@ public class Controler {
     public boolean checkInputOfStudent(String name, String lname,String act,String g){
            if(name.matches("[a-zA-Z]+" ) && lname.matches("[a-zA-Z]+")
                                             && act.matches("^[a-zA-Z0-9]+$")
-                                            && g.matches("[2-5]")){
+                                            && g.matches("[+-]?([0-9]*[.])?[0-9]+")){
                return true;
            }
            else 

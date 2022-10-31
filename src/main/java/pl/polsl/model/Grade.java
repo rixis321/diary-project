@@ -45,6 +45,10 @@ public class Grade {
    
    
    //methods
+   /**
+     * Method that set the activity of the student and wage of the grade
+     * @param nameOfAct name of the activity as a string
+     */
    private void setActivity(String nameOfAct){
        if(nameOfAct.equals("kartk")){
           this.act = Activity.KARTK;
@@ -128,12 +132,6 @@ public class Grade {
         }
    
 
-//   public void asg(){
-//       for(int i =0; i<activities.size();i++){
-//           activities.get(i);
-//       }
-//       
-//   }
    
   
 }
