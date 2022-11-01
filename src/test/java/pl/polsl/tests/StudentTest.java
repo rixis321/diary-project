@@ -17,10 +17,14 @@ import pl.polsl.model.Student;
 * Class that contains test for methods of the Student class
 
 * @author  Konrad Sygut
-* @version 1.0
+* @version 1.1
 */
 public class StudentTest {
     
+    
+        /**
+        * Represents the subject model
+        */
         private Student student;
 
 

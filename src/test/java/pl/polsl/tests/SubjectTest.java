@@ -16,7 +16,7 @@ import pl.polsl.model.Subject;
 * Class that contains test for methods of the Subject class
 
 * @author  Konrad Sygut
-* @version 1.0
+* @version 1.1
 */
 public class SubjectTest {
    

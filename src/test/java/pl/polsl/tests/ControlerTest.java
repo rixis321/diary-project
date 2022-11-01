@@ -19,7 +19,7 @@ import pl.polsl.view.RegisterView;
 * Class that contains tests for methods of the Controller class
 
 * @author  Konrad Sygut
-* @version 1.0
+* @version 1.1
 */
 public class ControlerTest {
     
