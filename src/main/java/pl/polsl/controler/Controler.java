@@ -149,7 +149,7 @@ public class Controler {
                     && args[2].matches("[a-zA-Z]+")
                     && args[3].matches("^[a-zA-Z0-9]+$")){
                 
-                if(args[4].matches("[+-]?([0-9]*[.])?[0-9]+")){
+                if(args[4].matches("[+-]?([2-5]*[.])?[2-5]+")){
                     
                     //System.out.println("Parameters are correct");
                     flag = 1;
@@ -196,7 +196,7 @@ public class Controler {
         if(name.matches("[a-zA-Z]+" ) && lname.matches("[a-zA-Z]+") 
                     && sbj.matches("[a-zA-Z]+")
                     && act.matches("^[a-zA-Z0-9]+$")
-                    && g.matches("[+-]?([0-9]*[.])?[0-9]+")){
+                    && g.matches("[+-]?([2-5]*[.])?[2-5]+")){
              return true;
         }
         else{
@@ -216,12 +216,13 @@ public class Controler {
     public boolean checkInputOfStudent(String name, String lname,String act,String g){
            if(name.matches("[a-zA-Z]+" ) && lname.matches("[a-zA-Z]+")
                                             && act.matches("^[a-zA-Z0-9]+$")
-                                            && g.matches("[+-]?([0-9]*[.])?[0-9]+")){
+                                            && g.matches("[+-]?([2-5]*[.])?[2-5]+")){
                return true;
            }
            else 
                return false;
         }
+    
     
     
    
