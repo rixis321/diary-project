@@ -100,6 +100,22 @@ public class Register {
         return subjects;
     } 
     
+    
+    /**
+     * Method that returns the array with Subject names
+     * @return array of Subject names
+     */
+    public String[] getSubjectsName(){
+    String[] names  = new String[subjects.size()];
+    
+    for(int i =0; i<subjects.size(); i++){
+       names[i] = (subjects.get(i).getSubName());
+       
+    }
+    
+    return names;
+}
+    
     /**
      * Method that adds student to subject ArrayList based on the index value
      * @param index value that is used to find elements in an subject ArrayList

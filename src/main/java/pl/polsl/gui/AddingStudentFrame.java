@@ -197,20 +197,14 @@ public class AddingStudentFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-       
-//       if(controler.isStringEmpty(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(),
-//                               jTextField4.getText(), jTextField5.getText()) == true)
-//       {
-          
-       //TODO wykrywanie bledow
+
        if(controler.checkInputOfData(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(),
                jTextField4.getText(), jTextField5.getText()) == true){
            
             float number = Float.parseFloat(jTextField5.getText());
             controler.addData(jTextField1.getText(), jTextField2.getText(),
                jTextField3.getText(), jTextField4.getText(), number);
-           
+           JOptionPane.showMessageDialog(null, "Student has been added.");
        }
        else
             JOptionPane.showMessageDialog(null, "Incorrect data. Try again");

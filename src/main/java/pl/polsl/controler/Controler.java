@@ -5,6 +5,7 @@
 package pl.polsl.controler;
 
 
+import java.util.ArrayList;
 import pl.polsl.model.Register;
 import pl.polsl.model.Subject;
 import pl.polsl.view.RegisterView;
@@ -51,6 +52,8 @@ public class Controler {
     }
     
     
+    
+    
     /**
      * Method that update Subject ArrayList, adding student to it
      * @param indx value that is used to find elements in an subject ArrayList
@@ -70,6 +73,15 @@ public class Controler {
     public boolean isSubjectsEmpty(){
        return this.model.isEmpty();
         
+    }
+    
+    
+     /**
+     * Method that returns the ArrayList with Subject names
+     * @return ArrayList of Subject names
+     */
+    public String[] getSubNames(){
+        return this.model.getSubjectsName();
     }
     
      /**

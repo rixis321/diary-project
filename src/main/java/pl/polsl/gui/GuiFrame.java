@@ -4,6 +4,7 @@
  */
 package pl.polsl.gui;
 
+import javax.swing.JOptionPane;
 import pl.polsl.controler.Controler;
 import pl.polsl.model.Register;
 import pl.polsl.view.RegisterView;
@@ -152,12 +153,22 @@ public class GuiFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-           setVisible(false);
+        if(!controler.isSubjectsEmpty()){// if ArrayList is not empty
+            setVisible(false);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new AddingSubjectFrame(register,controler).setVisible(true);
             }
-        });
+        }); 
+            
+            
+        }
+        else
+            JOptionPane.showMessageDialog(null, "There are no existing subjects. Try to add a student to database");
+        
+        
+        
+       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
