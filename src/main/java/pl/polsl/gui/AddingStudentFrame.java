@@ -182,7 +182,7 @@ public class AddingStudentFrame extends javax.swing.JFrame {
        dispose();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GuiFrame(register,controler).setVisible(true);
+                new MainMenuFrame(register,controler).setVisible(true);
             }
         });
 
@@ -243,7 +243,7 @@ public class AddingStudentFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GuiFrame(register,controler).setVisible(true);
+                new MainMenuFrame(register,controler).setVisible(true);
             }
         });
     }

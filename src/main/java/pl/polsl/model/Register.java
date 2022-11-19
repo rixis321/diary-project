@@ -8,6 +8,7 @@
         
 package pl.polsl.model;
 import java.util.ArrayList;
+import javax.swing.table.TableModel;
 
 
 /**
@@ -161,49 +162,47 @@ public class Register {
      
     }
     
-    
-//       public void checkStringWithOwnException{String word}{
-//        
-//        
-//          try{
-//              
-//          }
-//          catch(StringException se){
-//              System.out.println(se.getMessage());
-//          }
-//
-//          
-//     }
-//       
-//       static float stringToFloat(String input) throws StringException{
-//           float result = Float.parseFloat(input);
-//           
-//       }
-//           
-//       }
+    public Object[][] addDataTo2DArray(){
+        
+        Object[][] data = new Object[this.getSize()][6];
+        
+         for(int i =0; i<this.getSubjects().size();i++){
+        
+        String subject = this.getSubjects().get(i).getSubName();
+        data[i][0] = subject;
+        //printing students
+        for(int j=0; j<this.getSubjects().get(i).getStudents().size();j++){
+            
+            String name = this.getSubjects().get(i).getStudents().get(j).getName();
+            String lastName = this.getSubjects().get(i).getStudents().get(j).getLastName();
+            data[i][1] = name;
+            data[i][2] = lastName;
            
+            //printing grades
+            for(int k=0; k<this.getSubjects().get(i).getStudents().get(j).grades.size();k++){
+                
+                //printing activites
+                 for(int m = 0; m<this.getSubjects().get(i).getStudents().get(j).grades.get(k).getActivities().size();m++){
+                     Grade.Activity actv = this.getSubjects().get(i).getStudents().get(j).grades.get(k).getActivities().get(m);
+                              data[i][3] = actv;
+                 }
+                 String grade = Float.toString(this.getSubjects().get(i).getStudents().get(j).grades.get(k).getGrade());
+                 data[i][4] = grade;
+      
+               
+            }
+            String average = Float.toString(this.getSubjects().get(i).getStudents().get(j).average);
+            data[i][5] = average;
+        }
        
-          
-  
+    }              
+        return data;
+        
+    }
     
-}
-   
+  
 
-//    class StringException extends Exception {
-//
-//    /**
-//     * Non-parameter constructor
-//     */
-//    public StringException() {
-//    }
-//
-//    /**
-//     * Exception class constructor
-//     *
-//     * @param message display message
-//     */
-//    public StringException(String message) {
-//        super(message);
-//    }
+}
+
     
 

@@ -236,7 +236,9 @@ public class Controler {
         }
     
     
-    
+    public Object[][] addDataTo2DArray(){
+    return this.model.addDataTo2DArray();
+    }
    
     
 }

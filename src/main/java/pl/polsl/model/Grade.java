@@ -31,7 +31,7 @@ public class Grade {
       /* 
    * enum that represents type of activity of the student 
    */
-   private enum Activity{
+   public enum Activity{
        KARTK,
        EGZ,
        ODP,
@@ -132,6 +132,6 @@ public class Grade {
         }
    
 
-   
+  
   
 }

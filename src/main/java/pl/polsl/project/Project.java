@@ -40,6 +40,8 @@ public class Project {
         boolean controlFlag = true;
         Scanner keyboard = new Scanner(System.in);
         String name,lastName,subject,activity,grade;
+        
+            
 
         if(controler.checkInputOfData(args) == 1){
             
@@ -139,4 +141,5 @@ public class Project {
         }
         
     }
+
 }

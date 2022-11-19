@@ -13,12 +13,12 @@ import pl.polsl.view.RegisterView;
  *
  * @author zento
  */
-public class GuiFrame extends javax.swing.JFrame {
+public class MainMenuFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form GuiFrame
      */
-    public GuiFrame() {
+    public MainMenuFrame() {
         initComponents();
         
         view = new RegisterView();
@@ -26,7 +26,7 @@ public class GuiFrame extends javax.swing.JFrame {
         controler = new Controler(register,view);
     }
     
-     public GuiFrame(Register r, Controler c ) {
+     public MainMenuFrame(Register r, Controler c ) {
         initComponents();
         
         register = r;
@@ -146,10 +146,13 @@ public class GuiFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1KeyPressed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        //SPRAWDZENIE CZY WGL DZIALA
+        dispose();
+         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ShowDatabaseFrame(register,controler).setVisible(true);
+            }
+        }); 
         
-        controler.updateRegisterView(register);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -188,20 +191,21 @@ public class GuiFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GuiFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainMenuFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GuiFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainMenuFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GuiFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainMenuFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GuiFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainMenuFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GuiFrame().setVisible(true);
+                new MainMenuFrame().setVisible(true);
             }
         });
     }
