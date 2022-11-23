@@ -1,24 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package pl.polsl.gui;
 
+package pl.polsl.gui;
 import javax.swing.JOptionPane;
 import pl.polsl.controler.Controler;
 import pl.polsl.model.Register;
 
 
 /**
- *
- * @author zento
+ * Class responsible for frame that is used for adding a student to database
+ * @author Konrad Sygut
+ * @version 1.1
  */
 public class AddingStudentFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form NewRecordFrame
-     * @param r
-     * @param c
+     * @param r register model
+     * @param c controler object
      */
     public AddingStudentFrame(Register r , Controler c ) {
         initComponents();

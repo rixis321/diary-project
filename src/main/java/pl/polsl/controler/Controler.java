@@ -5,7 +5,6 @@
 package pl.polsl.controler;
 
 
-import java.util.ArrayList;
 import pl.polsl.model.Register;
 import pl.polsl.model.Subject;
 import pl.polsl.view.RegisterView;
@@ -15,7 +14,7 @@ import pl.polsl.view.RegisterView;
 * Controller class in MVC pattern. It controls data flow into Register object.
 * It keeps view and register model separate.
 * @author  Konrad Sygut
-* @version 1.1
+* @version 1.2
 */
 public class Controler {
     //fields
@@ -235,7 +234,20 @@ public class Controler {
                return false;
         }
     
-    
+     /**
+     * Method that returns the number of all students
+     * @return amount of all students
+     */
+        public int getNumberOfStudents(){
+            return this.model.getNumberOfStudents();
+        }
+        
+     /*   
+     * Method that transforms the data from ArrayList to 2D Array. Its needed
+     * for creating the  defualt table model used by ShowDatabaseFrame(GUI) to
+     * show data in table mode. 
+     * @return 2D array of data
+     */    
     public Object[][] addDataTo2DArray(){
     return this.model.addDataTo2DArray();
     }

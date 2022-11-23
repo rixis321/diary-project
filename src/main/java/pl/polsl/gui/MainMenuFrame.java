@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package pl.polsl.gui;
 
 import javax.swing.JOptionPane;
@@ -10,8 +7,9 @@ import pl.polsl.model.Register;
 import pl.polsl.view.RegisterView;
 
 /**
- *
- * @author zento
+ * Class responsible for frame that shows main menu
+ * @author Konrad Sygut
+ * @version 1.1
  */
 public class MainMenuFrame extends javax.swing.JFrame {
 

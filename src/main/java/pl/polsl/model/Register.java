@@ -8,7 +8,7 @@
         
 package pl.polsl.model;
 import java.util.ArrayList;
-import javax.swing.table.TableModel;
+
 
 
 /**
@@ -17,7 +17,7 @@ import javax.swing.table.TableModel;
 * 
 * 
 * @author  Konrad Sygut
-* @version 1.1
+* @version 1.2
 */
 public class Register {
     
@@ -162,37 +162,69 @@ public class Register {
      
     }
     
+        /**
+     * Method that returns the number of all students
+     * @return amount of all students
+     */
+    public int getNumberOfStudents(){
+        int sum =0;
+        for(int i = 0; i<this.subjects.size(); i++){
+            
+           for(int j=0; j<this.getSubjects().get(i).getStudents().size();j++){
+               
+               sum+=1;
+           }
+        }
+        return sum;
+    }
+    
+            /**
+     * Method that transforms the data from ArrayList to 2D Array. Its needed
+     * for creating the  defualt table model used by ShowDatabaseFrame(GUI) to
+     * show data in table mode. 
+     * @return 2D array of data
+     */
     public Object[][] addDataTo2DArray(){
         
-        Object[][] data = new Object[this.getSize()][6];
+        int index = 0;
+        Object[][] data = new Object[this.getNumberOfStudents()][6];
         
          for(int i =0; i<this.getSubjects().size();i++){
-        
+             
         String subject = this.getSubjects().get(i).getSubName();
-        data[i][0] = subject;
+        
+        
         //printing students
         for(int j=0; j<this.getSubjects().get(i).getStudents().size();j++){
-            
             String name = this.getSubjects().get(i).getStudents().get(j).getName();
             String lastName = this.getSubjects().get(i).getStudents().get(j).getLastName();
-            data[i][1] = name;
-            data[i][2] = lastName;
+                data[index][0] = subject;
+                 data[index][1] = name;
+                data[index][2] = lastName;
+
+            
            
             //printing grades
             for(int k=0; k<this.getSubjects().get(i).getStudents().get(j).grades.size();k++){
-                
+                    
                 //printing activites
                  for(int m = 0; m<this.getSubjects().get(i).getStudents().get(j).grades.get(k).getActivities().size();m++){
                      Grade.Activity actv = this.getSubjects().get(i).getStudents().get(j).grades.get(k).getActivities().get(m);
-                              data[i][3] = actv;
+                         data[index][3] = actv;
+
+                              
                  }
                  String grade = Float.toString(this.getSubjects().get(i).getStudents().get(j).grades.get(k).getGrade());
-                 data[i][4] = grade;
+                         data[index][4] = grade;
+
+                 
       
                
             }
             String average = Float.toString(this.getSubjects().get(i).getStudents().get(j).average);
-            data[i][5] = average;
+                         data[index][5] = average;
+            index++;
+          
         }
        
     }              

@@ -1,24 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package pl.polsl.gui;
 
-import java.awt.Dimension;
-import javax.swing.JTable;
-import javax.swing.table.AbstractTableModel;
-import javax.swing.table.TableColumn;
 import pl.polsl.controler.Controler;
 import pl.polsl.model.Register;
 
 /**
- *
- * @author zento
+ * Class responsible for frame that shows database
+ * @author Konrad Sygut
+ * @version 1.1
  */
 public class ShowDatabaseFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form ShowDatabaseFrame
+     * @param r register model
+     * @param c controler object
      */
     public ShowDatabaseFrame(Register r , Controler c ) {
         initComponents();

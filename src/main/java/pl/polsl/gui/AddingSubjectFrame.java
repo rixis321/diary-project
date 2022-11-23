@@ -6,23 +6,22 @@ package pl.polsl.gui;
 
 import javax.swing.JList;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import pl.polsl.controler.Controler;
 import pl.polsl.model.Register;
 
 
 /**
- *
- * @author zento
+ * Class responsible for frame that is used for adding a student to exisitng subject
+ * @author Konrad Sygut
+ * @version 1.1
  */
 public class AddingSubjectFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form AddingSubjectFrame
+     * @param r register model
+     * @param c controler object
      */
-    
-
-    
     public AddingSubjectFrame(Register r , Controler c ) {
         initComponents();
         register = r;
@@ -169,7 +168,7 @@ public class AddingSubjectFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(controler.checkInputOfStudent(jTextField1.getText(), jTextField2.getText(), jTextField3.getText(),
                jTextField4.getText()) == true){
-           
+   
             float number = Float.parseFloat(jTextField4.getText());
             controler.addStudentToSubject(list.getSelectedIndex(), jTextField1.getText(), jTextField2.getText(),
                     jTextField3.getText(),number);
