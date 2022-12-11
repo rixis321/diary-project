@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Class that represents student. Its storying the information about student
  * and his grades.
  * @author Konrad Sygut
- * @version 1.1
+ * @version 2.0
  */
 public class Student {
     //fields

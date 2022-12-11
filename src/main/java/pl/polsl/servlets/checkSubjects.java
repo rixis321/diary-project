@@ -14,8 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import pl.polsl.model.Register;
 
 /**
+ * Servlet class of the application responsible for checking if a subject exists
  *
  * @author Konrad Sygut
+ * @version 2.0
  */
 @WebServlet(name = "checkSubjects", urlPatterns = {"/checkSubjects"})
 public class checkSubjects extends HttpServlet {
@@ -51,6 +53,7 @@ public class checkSubjects extends HttpServlet {
             
            if(register.getSubjects().isEmpty()){
                out.println("<h2>There are no any exisitng subjects</h2>");
+               out.println("<a href=\"index.html\"><button>Back</button></a> \n");
            }
            else{
                out.println("<h1>Existing subjects:</h1>");

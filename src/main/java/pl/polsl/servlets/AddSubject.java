@@ -14,8 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import pl.polsl.model.Register;
 
 /**
+ * Servlet class of the application responsible for adding a student to 
+ * specific/exisiting subject
  *
  * @author Konrad Sygut
+ * @version 2.0
  */
 @WebServlet(name = "AddSubject", urlPatterns = {"/AddSubject"})
 public class AddSubject extends HttpServlet {

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 * 
 * 
 * @author  Konrad Sygut
-* @version 1.2
+* @version 2.0
 */
 public class Register {
     

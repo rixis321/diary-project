@@ -12,34 +12,17 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import pl.polsl.model.Register;
 
 /**
- * Servlet class of the application responsible for adding a data to database
+ * Servlet class of the application responsible for controlling cookie
+ * operation.
  *
  * @author Konrad Sygut
  * @version 2.0
  */
-@WebServlet(name = "AddData", urlPatterns = {"/AddData"})
-public class AddData extends HttpServlet {
+@WebServlet(name = "CookiesServlet", urlPatterns = {"/CookiesServlet"})
+public class CookiesServlet extends HttpServlet {
 
-    
-    
-    
-    private Register register;
-    
-    
-     @Override
-    public void init() {
-        
-        register = (Register) getServletContext().getAttribute("register");
-        if(register == null){
-            getServletContext().setAttribute("register", new Register("grupa 5"));
-            register = (Register) getServletContext().getAttribute("register");
-        }
-    }
-    
-    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -54,43 +37,27 @@ public class AddData extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
             
-        String firstName = request.getParameter("name");
-        String lastName = request.getParameter("surname");
-        String subject = request.getParameter("subject");
-        String grade = request.getParameter("grad");
-        String activity = request.getParameter("actv");
-        
-        
-        if(firstName.matches("[a-zA-Z]+" ) && lastName.matches("[a-zA-Z]+") 
-            && subject.matches("[a-zA-Z]+")
-            && activity.matches("^[a-zA-Z0-9]+$")
-            && grade.matches("[+-]?([2-5]*[.])?[2-5]+")){
-            
-            register.addData(firstName, lastName, subject, activity, Float.parseFloat(grade)); 
-                    out.println("<head>\n"
-                                + "        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n"
-                                + "        <title>Adding Students</title>\n"
-                                + "    </head>");
-                        out.println("<body>\n"
-                                + "<h1>Successfully added a student!</h1> \n"
-                                + "        <a href=\"index.html\"><button>Back</button></a> \n"    
-                                + "        </body>\n"
-                                + "</html>");
-       
-        }
-        else{
-             response.sendError(response.SC_BAD_REQUEST,"Invaild Input");
-        }
-        
-                Cookie cookie = new Cookie("lastAddedStudent", firstName);
-                 response.addCookie(cookie);
-           
+            Cookie[] cookies = request.getCookies();
+            String lastAddedStudent = "none";
+            if(cookies != null){
+                for(Cookie cookie: cookies){
+                    if(cookie.getName().equals("lastAddedStudent")){
+                        lastAddedStudent = cookie.getValue();
+                        out.println("<h1>Last added student:" + lastAddedStudent + "</h1>");
+                        out.println("<a href=\"index.html\"><button>Back</button></a> \n");
+                        break;
+                    }
+                    
+                    
+            }
 
+            
         }
+           else{
+           out.println("<h1>No students have been added recently</h1>");
+           }
     }
-    
-    
-    
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -104,11 +71,7 @@ public class AddData extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-            
-        
-
-         processRequest(request, response);
+        processRequest(request, response);
     }
 
     /**

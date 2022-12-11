@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * Class that represents grade. Its storying the activities(e.g. spr,egz,kartk,odp) of a student.
  * 
  * @author Konrad Sygut
- * @version 1.1
+ * @version 2.0
  */
 public class Grade {
     //fields 

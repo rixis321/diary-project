@@ -14,8 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import pl.polsl.model.Register;
 
 /**
+ * Servlet class of the application responsible for showing the database
  *
  * @author Konrad Sygut
+ * @version 2.0
  */
 @WebServlet(name = "ShowData", urlPatterns = {"/ShowData"})
 public class ShowData extends HttpServlet {
