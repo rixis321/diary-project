@@ -4,6 +4,7 @@
  */
 package pl.polsl.servlets;
 
+import pl.polsl.manager.DBManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -23,23 +24,25 @@ import pl.polsl.model.Register;
 @WebServlet(name = "AddData", urlPatterns = {"/AddData"})
 public class AddData extends HttpServlet {
 
-    
-    
-    
     private Register register;
-    
-    
-     @Override
+    private DBManager manager_DBM;
+
+    @Override
     public void init() {
-        
+
         register = (Register) getServletContext().getAttribute("register");
-        if(register == null){
+        if (register == null) {
             getServletContext().setAttribute("register", new Register("grupa 5"));
             register = (Register) getServletContext().getAttribute("register");
         }
+        manager_DBM = (DBManager) getServletContext().getAttribute("DBM");
+        if (manager_DBM == null) {
+            getServletContext().setAttribute("DBM", new DBManager());
+            manager_DBM = (DBManager) getServletContext().getAttribute("DBM");
+        }
+
     }
-    
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -53,44 +56,39 @@ public class AddData extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            
-        String firstName = request.getParameter("name");
-        String lastName = request.getParameter("surname");
-        String subject = request.getParameter("subject");
-        String grade = request.getParameter("grad");
-        String activity = request.getParameter("actv");
-        
-        
-        if(firstName.matches("[a-zA-Z]+" ) && lastName.matches("[a-zA-Z]+") 
-            && subject.matches("[a-zA-Z]+")
-            && activity.matches("^[a-zA-Z0-9]+$")
-            && grade.matches("[+-]?([2-5]*[.])?[2-5]+")){
-            
-            register.addData(firstName, lastName, subject, activity, Float.parseFloat(grade)); 
-                    out.println("<head>\n"
-                                + "        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n"
-                                + "        <title>Adding Students</title>\n"
-                                + "    </head>");
-                        out.println("<body>\n"
-                                + "<h1>Successfully added a student!</h1> \n"
-                                + "        <a href=\"index.html\"><button>Back</button></a> \n"    
-                                + "        </body>\n"
-                                + "</html>");
-       
-        }
-        else{
-             response.sendError(response.SC_BAD_REQUEST,"Invaild Input");
-        }
-        
-                Cookie cookie = new Cookie("lastAddedStudent", firstName);
-                 response.addCookie(cookie);
-           
+
+            String firstName = request.getParameter("name");
+            String lastName = request.getParameter("surname");
+            String subject = request.getParameter("subject");
+            String grade = request.getParameter("grad");
+            String activity = request.getParameter("actv");
+
+            if (firstName.matches("[a-zA-Z]+") && lastName.matches("[a-zA-Z]+")
+                    && subject.matches("[a-zA-Z]+")
+                    && activity.matches("^[a-zA-Z0-9]+$")
+                    && grade.matches("[+-]?([2-5]*[.])?[2-5]+")) {
+
+                register.addData(firstName, lastName, subject, activity, Float.parseFloat(grade));
+                manager_DBM.sendDatatoDatabase(firstName, lastName, subject, Float.parseFloat(grade), activity);
+                out.println("<head>\n"
+                        + "        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n"
+                        + "        <title>Adding Students</title>\n"
+                        + "    </head>");
+                out.println("<body>\n"
+                        + "<h1>Successfully added a student!</h1> \n"
+                        + "        <a href=\"index.html\"><button>Back</button></a> \n"
+                        + "        </body>\n"
+                        + "</html>");
+
+            } else {
+                response.sendError(response.SC_BAD_REQUEST, "Invaild Input");
+            }
+
+            Cookie cookie = new Cookie("lastAddedStudent", firstName);
+            response.addCookie(cookie);
 
         }
     }
-    
-    
-    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -104,11 +102,8 @@ public class AddData extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-            
-        
 
-         processRequest(request, response);
+        processRequest(request, response);
     }
 
     /**

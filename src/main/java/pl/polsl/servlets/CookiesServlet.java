@@ -36,27 +36,24 @@ public class CookiesServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            
+
             Cookie[] cookies = request.getCookies();
             String lastAddedStudent = "none";
-            if(cookies != null){
-                for(Cookie cookie: cookies){
-                    if(cookie.getName().equals("lastAddedStudent")){
+            if (cookies != null) {
+                for (Cookie cookie : cookies) {
+                    if (cookie.getName().equals("lastAddedStudent")) {
                         lastAddedStudent = cookie.getValue();
                         out.println("<h1>Last added student:" + lastAddedStudent + "</h1>");
                         out.println("<a href=\"index.html\"><button>Back</button></a> \n");
                         break;
                     }
-                    
-                    
-            }
 
-            
+                }
+
+            } else {
+                out.println("<h1>No students have been added recently</h1>");
+            }
         }
-           else{
-           out.println("<h1>No students have been added recently</h1>");
-           }
-    }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

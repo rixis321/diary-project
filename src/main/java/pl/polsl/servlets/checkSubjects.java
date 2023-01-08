@@ -4,8 +4,10 @@
  */
 package pl.polsl.servlets;
 
+import pl.polsl.manager.DBManager;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,19 +23,22 @@ import pl.polsl.model.Register;
  */
 @WebServlet(name = "checkSubjects", urlPatterns = {"/checkSubjects"})
 public class checkSubjects extends HttpServlet {
-    
-    
-    
-            private Register register;
-    
-    
-     @Override
+
+    private Register register;
+    private DBManager manager_DBM;
+
+    @Override
     public void init() {
-        
+
         register = (Register) getServletContext().getAttribute("register");
-        if(register == null){
+        if (register == null) {
             getServletContext().setAttribute("register", new Register("grupa 5"));
             register = (Register) getServletContext().getAttribute("register");
+        }
+        manager_DBM = (DBManager) getServletContext().getAttribute("DBM");
+        if (manager_DBM == null) {
+            getServletContext().setAttribute("DBM", new DBManager());
+            manager_DBM = (DBManager) getServletContext().getAttribute("DBM");
         }
     }
 
@@ -50,29 +55,26 @@ public class checkSubjects extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            
-           if(register.getSubjects().isEmpty()){
-               out.println("<h2>There are no any exisitng subjects</h2>");
-               out.println("<a href=\"index.html\"><button>Back</button></a> \n");
-           }
-           else{
-               out.println("<h1>Existing subjects:</h1>");
-              for(int i =0; i<register.getSubjects().size();i++){
-                  String subject = register.getSubjects().get(i).getSubName();
-                  out.println(subject +",");
 
+            if (manager_DBM.isSubjectEmpty()) {
+                out.println("<h2>There are no any exisitng subjects</h2>");
+                out.println("<a href=\"index.html\"><button>Back</button></a> \n");
+            } else {
+                out.println("<h1>Existing subjects:</h1>");
 
-                
-              } 
-                  out.println("<br>");
-                  out.println("<br>");
-                  out.println("<br>");
-                  out.println("<a href=\"addSubject.html\"><button>Add a student to subject</button></a> \n");
-                  out.println("<a href=\"index.html\"><button>Back</button></a> \n");
-      
-              
-                 
-           }
+                List<String> subjectsList = manager_DBM.getSubjectsName();
+                for (int i = 0; i < subjectsList.size(); i++) {
+                    String subject = subjectsList.get(i);
+                    out.println(subject + ",");
+
+                }
+                out.println("<br>");
+                out.println("<br>");
+                out.println("<br>");
+                out.println("<a href=\"addSubject.html\"><button>Add a student to subject</button></a> \n");
+                out.println("<a href=\"index.html\"><button>Back</button></a> \n");
+
+            }
         }
     }
 

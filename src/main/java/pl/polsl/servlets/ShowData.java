@@ -4,6 +4,7 @@
  */
 package pl.polsl.servlets;
 
+import pl.polsl.manager.DBManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -23,18 +24,22 @@ import pl.polsl.model.Register;
 public class ShowData extends HttpServlet {
 
     private Register reg;
-    
-        @Override
-    public void init() 
-    {
+    private DBManager manager_DBM;
+
+    @Override
+    public void init() {
         reg = (Register) getServletContext().getAttribute("register");
-        if(reg == null)
-        {
+        if (reg == null) {
             getServletContext().setAttribute("register", new Register("grupa 5"));
             reg = (Register) getServletContext().getAttribute("register");
         }
+        manager_DBM = (DBManager) getServletContext().getAttribute("DBM");
+        if (manager_DBM == null) {
+            getServletContext().setAttribute("DBM", new DBManager());
+            manager_DBM = (DBManager) getServletContext().getAttribute("DBM");
+        }
     }
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -47,41 +52,42 @@ public class ShowData extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         try ( PrintWriter out = response.getWriter()) {
-             
-             if(reg.getSubjects().isEmpty()){
-                 out.println("<h2>There are no any data yet</h2>");
-             }
+        try ( PrintWriter out = response.getWriter()) {
 
-             for(int i =0; i<reg.getSubjects().size();i++){
-                 out.println(reg.getSubjects().get(i).getSubName());
-                 out.println("<br>");
-                 
-                  //printing students
-                 for(int j=0; j<reg.getSubjects().get(i).getStudents().size();j++){
-                 
+            if (manager_DBM.isSubjectEmpty()) {
+                out.println("<h2>There are no any data yet</h2>");
+
+            }
+            reg = manager_DBM.getModel();
+
+            for (int i = 0; i < reg.getSubjects().size(); i++) {
+                out.println(reg.getSubjects().get(i).getSubName());
+                out.println("<br>");
+
+                //printing students
+                for (int j = 0; j < reg.getSubjects().get(i).getStudents().size(); j++) {
+
                     out.println(reg.getSubjects().get(i).getStudents().get(j).getName() + " "
-                        + reg.getSubjects().get(i).getStudents().get(j).getLastName() + " " );
-                      
-                      //printing grades
-                    for(int k=0; k<reg.getSubjects().get(i).getStudents().get(j).grades.size();k++){
-            
-                        //printing activites
-                        for(int m = 0; m<reg.getSubjects().get(i).getStudents().get(j).grades.get(k).getActivities().size();m++){
-                                 out.println(reg.getSubjects().get(i).getStudents().get(j).grades.get(k).getActivities().get(m)+": " );
-                 }
-                 out.println(reg.getSubjects().get(i).getStudents().get(j).grades.get(k).getGrade() +" ");
+                            + reg.getSubjects().get(i).getStudents().get(j).getLastName() + " ");
 
-                         }
-                             out.println("average: " + reg.getSubjects().get(i).getStudents().get(j).average+ " ");
-                             out.println("<br>");
-             }
-         }
-         
-             out.println("<a href=\"index.html\"><button>Back</button></a> \n");
-         
-         }
-        
+                    //printing grades
+                    for (int k = 0; k < reg.getSubjects().get(i).getStudents().get(j).grades.size(); k++) {
+
+                        //printing activites
+                        for (int m = 0; m < reg.getSubjects().get(i).getStudents().get(j).grades.get(k).getActivities().size(); m++) {
+                            out.println(reg.getSubjects().get(i).getStudents().get(j).grades.get(k).getActivities().get(m) + ": ");
+                        }
+                        out.println(reg.getSubjects().get(i).getStudents().get(j).grades.get(k).getGrade() + " ");
+
+                    }
+                    out.println("average: " + reg.getSubjects().get(i).getStudents().get(j).average + " ");
+                    out.println("<br>");
+                }
+            }
+
+            out.println("<a href=\"index.html\"><button>Back</button></a> \n");
+
+        }
 
     }
 

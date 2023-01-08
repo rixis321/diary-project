@@ -119,12 +119,13 @@ public class Register {
     
     /**
      * Method that adds student to subject ArrayList based on the index value
+     *
      * @param index value that is used to find elements in an subject ArrayList
      * @param name name of the student
      * @param lname name of the student
      * @param act activity of the student
      * @param g grade of the student
-     */        
+     */     
     public void addStudentToSubject(int index,String name, String lname, String act,float g){
         Student student = new Student(name,lname);
         Grade grd = new Grade(g,act);
