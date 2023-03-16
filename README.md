@@ -16,7 +16,7 @@ Used technologies
 ![image](https://user-images.githubusercontent.com/58139675/225685915-c7f5702c-aa32-444b-a7f0-c939cde396b1.png)
 <br />
 <br />
-![image](https://user-images.githubusercontent.com/58139675/225686023-939101a5-26f4-4f70-ba98-612821a37194.png)
+![image](https://user-images.githubusercontent.com/58139675/225687832-b7e6fd78-ebc7-45f3-96bb-2c2e533c9394.png)
 <br />
 <br />
 ![image](https://user-images.githubusercontent.com/58139675/225686242-b97196ca-46bb-4402-b643-9c066f8f6139.png)
