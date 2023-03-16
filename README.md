@@ -1,15 +1,16 @@
 # diary-project
+
 School diary project implemented with MVC in Java
 
 Used technologies
 <br />
-- JAVA
+-JAVA
 <br />
-- JDBC
+-JDBC
 <br />
-- Swing(GUI)
+-Swing(GUI)
 <br />
-- WebServlets
+-WebServlets
 <br />
 
 ![image](https://user-images.githubusercontent.com/58139675/225685915-c7f5702c-aa32-444b-a7f0-c939cde396b1.png)
@@ -21,5 +22,4 @@ Used technologies
 ![image](https://user-images.githubusercontent.com/58139675/225686242-b97196ca-46bb-4402-b643-9c066f8f6139.png)
 <br />
 ![image](https://user-images.githubusercontent.com/58139675/225686330-8c1ab75b-3572-44c8-a3da-ae15a362ab25.png)
-
 <br />
