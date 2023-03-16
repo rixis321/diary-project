@@ -13,7 +13,7 @@ Used technologies
 -WebServlets
 <br />
 
-![image](https://user-images.githubusercontent.com/58139675/225685915-c7f5702c-aa32-444b-a7f0-c939cde396b1.png)
+![image](https://user-images.githubusercontent.com/58139675/225687950-3146f626-45c6-46b7-9eaa-c3a034dd377d.png)
 <br />
 <br />
 ![image](https://user-images.githubusercontent.com/58139675/225687832-b7e6fd78-ebc7-45f3-96bb-2c2e533c9394.png)
