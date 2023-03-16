@@ -12,6 +12,8 @@ Used technologies
 <br />
 -WebServlets
 <br />
+-Apache Derby
+<br />
 
 ![image](https://user-images.githubusercontent.com/58139675/225687950-3146f626-45c6-46b7-9eaa-c3a034dd377d.png)
 <br />
