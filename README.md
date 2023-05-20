@@ -6,7 +6,7 @@ Used technologies
 <br />
 -JAVA
 <br />
--JDBC
+-JPA
 <br />
 -Swing(GUI)
 <br />
